@@ -1,0 +1,30 @@
+body{
+    background-image: linear-gradient(to bottom, rgb(94, 68, 124),rgb(68, 91, 155));
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    font-family: courier,arial,helvetica;
+    font-size: xx-large;
+}
+div{
+    border: solid;
+    width: 300px;
+    margin: 0 auto;
+    border-width: 2px;
+    background-color:  rgb(129, 93, 170); 
+}
+input{
+    width: 200px;
+    height: 20px;
+    border-radius: 3px;
+    font-size: medium;
+    text-align: center;
+    font-family: courier,arial,helvetica;
+}
+button{
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: medium;
+    font-family: courier,arial,helvetica;
+}

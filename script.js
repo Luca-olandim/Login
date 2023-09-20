@@ -4,30 +4,43 @@ const campoNovoLogin = document.getElementById("novoLogin")
 const campoNovaSenha = document.getElementById("novaSenha")
 const campoRepSenha = document.getElementById("repSenha")
 
-let usuarios = [];
+
 
 function login(){
+    let login = campoLogin.value;
+    let senha = campoSenha.value;
+    let bancoDeDados = JSON.parse(localStorage.getItem("bancoDeDados"));
     let mensagem = "Usuário ou senha incorreta!";
-    for(let usuario of usuarios){
-        if(usuario.login == campoLogin.value && usuario.senha == campoSenha.value){
-            mensagem = "Logado com sucesso!"
-            window.location.href ="./logado/home.html";
-            break;
-        }
+    if (bancoDeDados == null) {
+    mensagem = "Nenhum usuário cadastrado até o momento";
+    } else {
+        for (let usuario of bancoDeDados) {
+            if (usuario.login == login && usuario.senha == senha) {
+                mensagem = "Parabéns, você logou!";
+                localStorage.setItem("logado", JSON.stringify(usuario))
+                window.location.href = "./logado/home.html"
+                break;
+            }
+        }  
+        alert(mensagem);     
     }
-    alert(mensagem)
 }
 
 function cadastra(){
-if(campoNovaSenha.value = campoRepSenha.value){
-    let usuario = {
-        login : campoNovoLogin.value,
-        senha : campoNovaSenha.value
+    if (campoNovaSenha.value == campoRepSenha.value) {
+        const usuario = {
+            login: campoNovoLogin.value,
+            senha: campoNovaSenha.value
+        };
+        let bancoDeDados = JSON.parse(localStorage.getItem("bancoDeDados"));
+        if (bancoDeDados == null) {
+        bancoDeDados = [];
+        }
+        bancoDeDados.push(usuario);
+        localStorage.setItem("bancoDeDados", JSON.stringify(bancoDeDados));
+        alert("Usuário cadastrado com sucesso!");
+
+    } else {
+        alert("As senhas são diferentes!");
     }
-    usuarios.push(usuario);
-    alert("Usuáiro cadastrado com sucesso!")
-}
-else{
-    alert("Você digitou duas senhas diferentes!")
-}
 }

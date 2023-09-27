@@ -39,6 +39,7 @@ function cadastra(){
         bancoDeDados.push(usuario);
         localStorage.setItem("bancoDeDados", JSON.stringify(bancoDeDados));
         alert("Usuário cadastrado com sucesso!");
+        window.location.href = "./logado/home.html"
 
     } else {
         alert("As senhas são diferentes!");

@@ -12,7 +12,7 @@ function login(){
     let bancoDeDados = JSON.parse(localStorage.getItem("bancoDeDados"));
     let mensagem = "Usuário ou senha incorreta!";
     if (bancoDeDados == null) {
-    mensagem = "Nenhum usuário cadastrado até o momento";
+        mensagem = "Nenhum usuário cadastrado até o momento";
     } else {
         for (let usuario of bancoDeDados) {
             if (usuario.login == login && usuario.senha == senha) {

@@ -8,6 +8,7 @@ body{
     font-family:'League Spartan', sans-serif;
     font-size: xx-large;
     color: #F0F0F2;
+    overflow: hidden;
 }
 div{
     border: solid;
